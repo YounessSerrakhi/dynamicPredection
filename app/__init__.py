@@ -1,11 +1,7 @@
 from flask import Flask
-from flask_restful import Api
-from .routes.model_training import ModelTrainingResource
+from .routes import main  # Import the main Blueprint
 
 def create_app():
     app = Flask(__name__)
-    api = Api(app)
-    
-    api.add_resource(ModelTrainingResource, '/train')
-    
+    app.register_blueprint(main)  # Register the Blueprint
     return app
