@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application d'Entraînement ML</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Application d'Entraînement ML</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <div>
+                <label for="file">Fichier CSV :</label>
+                <input type="file" id="file" name="file" accept=".csv" required>
+            </div>
+            <div>
+                <label for="targetColumn">Colonne cible :</label>
+                <input type="text" id="targetColumn" name="target_column" required>
+            </div>
+            <button type="submit">Entraîner les modèles</button>
+        </form>
+        <div id="results" class="hidden">
+            <h2>Résultats</h2>
+            <ul id="modelList"></ul>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
